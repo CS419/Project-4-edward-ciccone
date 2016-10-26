@@ -88,14 +88,44 @@ public class Launcher extends Application {
      */
     private static final StackPane ROOT = new StackPane();
 
-    
+    /**
+     * Start setting all the UI components to a Pane, then the Pane gets set to a Scene,
+     * and finally the Scene gets set to the Stage.
+     * 
+     * @param primaryStage The stage which will hold all of the Nodes
+     */
     @Override
     public void start(Stage primaryStage) {
+    	/*
+    	 * Positions all the labels 
+    	 */
         buildLabels();
+        
+        /*
+         * Positions the x and y axis's corresponding arrow heads as well as
+         * setting the colors of the Sin and Cos lines
+         */
         buildGraph();
+        
+        /*
+         * Sets all the points to be graphed for the Sin and Cos lines
+         */
         buildPoints();
+        
+        /*
+         * Adds all the nodes to our root Pane
+         */
         buildPane();
+        
+        /*
+         * Creates our main Scene as a 600 by 400 rectangle, and sets our root Pane 
+         * to be displayed in this Scene
+         */
         Scene scene = new Scene(ROOT, WINDOW_WIDTH, WINDOW_HEIGHT);
+        
+        /*
+         * Sets our Stage's Scene, and displays all of our Nodes.
+         */
         primaryStage.setTitle("sin and cos");
         primaryStage.setScene(scene);
         primaryStage.show();
